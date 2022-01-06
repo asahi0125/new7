@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>書籍データの登録</title>
+        <h:outputStylesheet name="style.css" library="css" />
+    </h:head>
+    <h:body>
+        <h2>書籍データの登録</h2>
+        <hr/>
+        <h:form>
+        <h:panelGrid columns="3" >
+            <h:outputLabel value="ISBN ： "/>
+            <h:inputText id="isbn" label="isbn"
+                         value="#{backingBook01.isbn}" size="45"/>
+            <h:message for="isbn" errorClass="err"/>
+
+            <h:outputLabel value="ジャンル ： "/>
+            <h:selectOneMenu id="genre" label="genre"
+                               value="#{backingBook01.genre}"
+                               requiredMessage="項目を選択してください。">
+                <f:selectItem  itemLabel="---選択してください---"
+                                 noSelectionOption="true"/>
+                <f:selectItems value="#{backingBook01.item}"/>
+            </h:selectOneMenu>
+            <h:message for="genre" errorClass="err"/>
+
+            <h:outputLabel value="書籍名 ："/>
+            <h:inputText id="title" label="書籍名"
+                         value="#{backingBook01.title}"  size="45"/>
+            <h:message for="title" errorClass="err"/>
+
+            <h:outputLabel value="本体価格 ："/>
+            <h:inputText id="price" label="本体価格"
+                         value="#{backingBook01.price}"  size="45"/>
+            <h:message for="price" errorClass="err"/>
+
+            <h:outputLabel value="発売日 ："/>
+            <h:inputText id="date"    label="発売日"
+                           value="#{backingBook01.date}"  size="45">
+                <f:convertDateTime pattern="yyyy/M/d"/>
+            </h:inputText>
+            <h:message for="date" errorClass="err"/>
+
+            <h:outputLabel value="内容説明 ："/>
+            <h:inputTextarea id="exp" label="内容説明"
+                             value="#{backingBook01.exp}"  cols="40" rows="10"/>
+            <h:message for="exp" errorClass="err"/>
+        </h:panelGrid>
+        <hr/>
+        <h:commandButton  value="登録" action="#{backingBook01.doRegistrate()}"/>
+        </h:form>
+    </h:body>
+</html>
+
+
+

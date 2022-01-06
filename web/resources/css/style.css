@@ -1,0 +1,15 @@
+body { font-family: メイリオ, Osaka; }
+h2  { font-size: 1.5em; }
+
+.c1 {
+    width:100px;
+    text-align: center;
+    padding:3px;
+}
+.c2 {
+    width:400px; padding:3px;
+}
+.err{
+    font-size:0.8em;
+    color: #ff00ff;
+}
